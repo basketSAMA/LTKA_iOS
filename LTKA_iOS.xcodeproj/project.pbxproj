@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1512068EA16579168E4EBC2D /* Pods_LTKA_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84417384C70C47A309AAFDDD /* Pods_LTKA_iOSTests.framework */; };
 		66D40C752603057F00FC76E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C742603057F00FC76E2 /* AppDelegate.m */; };
 		66D40C782603057F00FC76E2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C772603057F00FC76E2 /* SceneDelegate.m */; };
 		66D40C7B2603057F00FC76E2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C7A2603057F00FC76E2 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 		66D40C862603058100FC76E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C852603058100FC76E2 /* main.m */; };
 		66D40C902603058100FC76E2 /* LTKA_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C8F2603058100FC76E2 /* LTKA_iOSTests.m */; };
 		66D40C9B2603058100FC76E2 /* LTKA_iOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C9A2603058100FC76E2 /* LTKA_iOSUITests.m */; };
+		8DED0D13272FEDDB0AAAAD69 /* Pods_LTKA_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A386D154AC61A530C790782 /* Pods_LTKA_iOS.framework */; };
+		F8E8798FAEC3D22BA52EABBD /* Pods_LTKA_iOS_LTKA_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCF4BA3E4DC7DF96ACBECE /* Pods_LTKA_iOS_LTKA_iOSUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F945D60195C322FD141C7B4 /* Pods-LTKA_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTKA_iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-LTKA_iOSTests/Pods-LTKA_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2BF54416307DB71F1D814889 /* Pods-LTKA_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTKA_iOS.debug.xcconfig"; path = "Target Support Files/Pods-LTKA_iOS/Pods-LTKA_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4080790120F61850D0CBBFDD /* Pods-LTKA_iOS-LTKA_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTKA_iOS-LTKA_iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-LTKA_iOS-LTKA_iOSUITests/Pods-LTKA_iOS-LTKA_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		410A4378A3272B31E25CCE79 /* Pods-LTKA_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTKA_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-LTKA_iOSTests/Pods-LTKA_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		47F858D8F590ADF23EBEB415 /* Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-LTKA_iOS-LTKA_iOSUITests/Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5A386D154AC61A530C790782 /* Pods_LTKA_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTKA_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D40C702603057F00FC76E2 /* LTKA_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTKA_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D40C732603057F00FC76E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		66D40C742603057F00FC76E2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -54,6 +63,9 @@
 		66D40C962603058100FC76E2 /* LTKA_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTKA_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D40C9A2603058100FC76E2 /* LTKA_iOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTKA_iOSUITests.m; sourceTree = "<group>"; };
 		66D40C9C2603058100FC76E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F137EE9FB4DD73E1E624D9C /* Pods-LTKA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTKA_iOS.release.xcconfig"; path = "Target Support Files/Pods-LTKA_iOS/Pods-LTKA_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		84417384C70C47A309AAFDDD /* Pods_LTKA_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTKA_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5BCF4BA3E4DC7DF96ACBECE /* Pods_LTKA_iOS_LTKA_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTKA_iOS_LTKA_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DED0D13272FEDDB0AAAAD69 /* Pods_LTKA_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1512068EA16579168E4EBC2D /* Pods_LTKA_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +89,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8E8798FAEC3D22BA52EABBD /* Pods_LTKA_iOS_LTKA_iOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F4ADF7405E284F37F7B0AB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A386D154AC61A530C790782 /* Pods_LTKA_iOS.framework */,
+				D5BCF4BA3E4DC7DF96ACBECE /* Pods_LTKA_iOS_LTKA_iOSUITests.framework */,
+				84417384C70C47A309AAFDDD /* Pods_LTKA_iOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		66D40C672603057F00FC76E2 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +113,8 @@
 				66D40C8E2603058100FC76E2 /* LTKA_iOSTests */,
 				66D40C992603058100FC76E2 /* LTKA_iOSUITests */,
 				66D40C712603057F00FC76E2 /* Products */,
+				ABD92E466330785801D28E8F /* Pods */,
+				2F4ADF7405E284F37F7B0AB2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +164,20 @@
 			path = LTKA_iOSUITests;
 			sourceTree = "<group>";
 		};
+		ABD92E466330785801D28E8F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2BF54416307DB71F1D814889 /* Pods-LTKA_iOS.debug.xcconfig */,
+				7F137EE9FB4DD73E1E624D9C /* Pods-LTKA_iOS.release.xcconfig */,
+				4080790120F61850D0CBBFDD /* Pods-LTKA_iOS-LTKA_iOSUITests.debug.xcconfig */,
+				47F858D8F590ADF23EBEB415 /* Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig */,
+				0F945D60195C322FD141C7B4 /* Pods-LTKA_iOSTests.debug.xcconfig */,
+				410A4378A3272B31E25CCE79 /* Pods-LTKA_iOSTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66D40C9F2603058100FC76E2 /* Build configuration list for PBXNativeTarget "LTKA_iOS" */;
 			buildPhases = (
+				D763D4059744A4AC80D5F540 /* [CP] Check Pods Manifest.lock */,
 				66D40C6C2603057F00FC76E2 /* Sources */,
 				66D40C6D2603057F00FC76E2 /* Frameworks */,
 				66D40C6E2603057F00FC76E2 /* Resources */,
+				E9160BFF6A8BF16801990567 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +204,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66D40CA22603058100FC76E2 /* Build configuration list for PBXNativeTarget "LTKA_iOSTests" */;
 			buildPhases = (
+				11A3B46B7DDDB4F533C34B03 /* [CP] Check Pods Manifest.lock */,
 				66D40C872603058100FC76E2 /* Sources */,
 				66D40C882603058100FC76E2 /* Frameworks */,
 				66D40C892603058100FC76E2 /* Resources */,
@@ -179,9 +223,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66D40CA52603058100FC76E2 /* Build configuration list for PBXNativeTarget "LTKA_iOSUITests" */;
 			buildPhases = (
+				1C1AC071878C193D2E5A964B /* [CP] Check Pods Manifest.lock */,
 				66D40C922603058100FC76E2 /* Sources */,
 				66D40C932603058100FC76E2 /* Frameworks */,
 				66D40C942603058100FC76E2 /* Resources */,
+				20991C72394E75A21F314E66 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +306,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11A3B46B7DDDB4F533C34B03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LTKA_iOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1C1AC071878C193D2E5A964B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LTKA_iOS-LTKA_iOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20991C72394E75A21F314E66 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LTKA_iOS-LTKA_iOSUITests/Pods-LTKA_iOS-LTKA_iOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LTKA_iOS-LTKA_iOSUITests/Pods-LTKA_iOS-LTKA_iOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LTKA_iOS-LTKA_iOSUITests/Pods-LTKA_iOS-LTKA_iOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D763D4059744A4AC80D5F540 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LTKA_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9160BFF6A8BF16801990567 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LTKA_iOS/Pods-LTKA_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LTKA_iOS/Pods-LTKA_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LTKA_iOS/Pods-LTKA_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66D40C6C2603057F00FC76E2 /* Sources */ = {
@@ -438,6 +587,7 @@
 		};
 		66D40CA02603058100FC76E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BF54416307DB71F1D814889 /* Pods-LTKA_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -455,6 +605,7 @@
 		};
 		66D40CA12603058100FC76E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F137EE9FB4DD73E1E624D9C /* Pods-LTKA_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -472,6 +623,7 @@
 		};
 		66D40CA32603058100FC76E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F945D60195C322FD141C7B4 /* Pods-LTKA_iOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -491,6 +643,7 @@
 		};
 		66D40CA42603058100FC76E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 410A4378A3272B31E25CCE79 /* Pods-LTKA_iOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -510,6 +663,7 @@
 		};
 		66D40CA62603058100FC76E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4080790120F61850D0CBBFDD /* Pods-LTKA_iOS-LTKA_iOSUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LTKA_iOSUITests/Info.plist;
@@ -527,6 +681,7 @@
 		};
 		66D40CA72603058100FC76E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47F858D8F590ADF23EBEB415 /* Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LTKA_iOSUITests/Info.plist;
