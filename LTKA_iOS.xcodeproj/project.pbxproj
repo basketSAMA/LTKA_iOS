@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -174,7 +174,6 @@
 				0F945D60195C322FD141C7B4 /* Pods-LTKA_iOSTests.debug.xcconfig */,
 				410A4378A3272B31E25CCE79 /* Pods-LTKA_iOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

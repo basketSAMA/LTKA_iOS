@@ -6,6 +6,7 @@
 //
 
 #import "SceneDelegate.h"
+#import "ViewController.h"
 
 @interface SceneDelegate ()
 
@@ -18,6 +19,47 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    if(![scene isKindOfClass:[UIWindowScene class]]) return;
+    self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene*)scene];
+    UITabBarController* tab = [UITabBarController new];
+    self.window.rootViewController = tab;
+    {
+        ViewController* vc = [ViewController new];
+        vc.tabBarItem.title = @"11";
+        vc.tabBarItem.image = [UIImage imageNamed:@"img1"];
+        vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img1"];
+        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [nav.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        [tab addChildViewController:nav];
+    }
+    {
+        ViewController* vc = [ViewController new];
+        vc.tabBarItem.title = @"11";
+        vc.tabBarItem.image = [UIImage imageNamed:@"img2"];
+        vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img2"];
+        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [nav.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        [tab addChildViewController:nav];
+    }
+    {
+        ViewController* vc = [ViewController new];
+        vc.tabBarItem.title = @"11";
+        vc.tabBarItem.image = [UIImage imageNamed:@"img3"];
+        vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img3"];
+        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [nav.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        [tab addChildViewController:nav];
+    }
+    {
+        ViewController* vc = [ViewController new];
+        vc.tabBarItem.title = @"11";
+        vc.tabBarItem.image = [UIImage imageNamed:@"img4"];
+        vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img4"];
+        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [nav.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        [tab addChildViewController:nav];
+    }
+    [self.window makeKeyAndVisible];
 }
 
 
