@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1512068EA16579168E4EBC2D /* Pods_LTKA_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84417384C70C47A309AAFDDD /* Pods_LTKA_iOSTests.framework */; };
+		6679703F2609C05D00EA4D13 /* KeepAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6679703E2609C05D00EA4D13 /* KeepAccountsViewController.m */; };
 		66D40C752603057F00FC76E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C742603057F00FC76E2 /* AppDelegate.m */; };
 		66D40C782603057F00FC76E2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C772603057F00FC76E2 /* SceneDelegate.m */; };
 		66D40C7B2603057F00FC76E2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C7A2603057F00FC76E2 /* ViewController.m */; };
@@ -45,6 +46,8 @@
 		410A4378A3272B31E25CCE79 /* Pods-LTKA_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTKA_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-LTKA_iOSTests/Pods-LTKA_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		47F858D8F590ADF23EBEB415 /* Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-LTKA_iOS-LTKA_iOSUITests/Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5A386D154AC61A530C790782 /* Pods_LTKA_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTKA_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6679703D2609C05D00EA4D13 /* KeepAccountsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeepAccountsViewController.h; sourceTree = "<group>"; };
+		6679703E2609C05D00EA4D13 /* KeepAccountsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeepAccountsViewController.m; sourceTree = "<group>"; };
 		66D40C702603057F00FC76E2 /* LTKA_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTKA_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D40C732603057F00FC76E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		66D40C742603057F00FC76E2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -106,6 +109,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		667970312609BBF700EA4D13 /* KeepAccountsModule */ = {
+			isa = PBXGroup;
+			children = (
+				6679703D2609C05D00EA4D13 /* KeepAccountsViewController.h */,
+				6679703E2609C05D00EA4D13 /* KeepAccountsViewController.m */,
+			);
+			path = KeepAccountsModule;
+			sourceTree = "<group>";
+		};
 		66D40C672603057F00FC76E2 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +143,7 @@
 		66D40C722603057F00FC76E2 /* LTKA_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				667970312609BBF700EA4D13 /* KeepAccountsModule */,
 				66D40C732603057F00FC76E2 /* AppDelegate.h */,
 				66D40C742603057F00FC76E2 /* AppDelegate.m */,
 				66D40C762603057F00FC76E2 /* SceneDelegate.h */,
@@ -415,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66D40C7B2603057F00FC76E2 /* ViewController.m in Sources */,
+				6679703F2609C05D00EA4D13 /* KeepAccountsViewController.m in Sources */,
 				66D40C752603057F00FC76E2 /* AppDelegate.m in Sources */,
 				66D40C862603058100FC76E2 /* main.m in Sources */,
 				66D40C782603057F00FC76E2 /* SceneDelegate.m in Sources */,

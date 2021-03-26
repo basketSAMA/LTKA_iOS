@@ -7,6 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "ViewController.h"
+#import "KeepAccountsModule/KeepAccountsViewController.h"
 
 @interface SceneDelegate ()
 
@@ -24,8 +25,8 @@
     UITabBarController* tab = [UITabBarController new];
     self.window.rootViewController = tab;
     {
-        ViewController* vc = [ViewController new];
-        vc.tabBarItem.title = @"11";
+        KeepAccountsViewController* vc = [KeepAccountsViewController new];
+        vc.tabBarItem.title = @"记账";
         vc.tabBarItem.image = [UIImage imageNamed:@"img1"];
         vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img1"];
         UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -34,7 +35,7 @@
     }
     {
         ViewController* vc = [ViewController new];
-        vc.tabBarItem.title = @"11";
+        vc.tabBarItem.title = @"资产";
         vc.tabBarItem.image = [UIImage imageNamed:@"img2"];
         vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img2"];
         UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -43,7 +44,7 @@
     }
     {
         ViewController* vc = [ViewController new];
-        vc.tabBarItem.title = @"11";
+        vc.tabBarItem.title = @"发现";
         vc.tabBarItem.image = [UIImage imageNamed:@"img3"];
         vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img3"];
         UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -52,7 +53,7 @@
     }
     {
         ViewController* vc = [ViewController new];
-        vc.tabBarItem.title = @"11";
+        vc.tabBarItem.title = @"我的";
         vc.tabBarItem.image = [UIImage imageNamed:@"img4"];
         vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img4"];
         UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
