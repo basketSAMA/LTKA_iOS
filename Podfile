@@ -7,7 +7,9 @@ target 'LTKA_iOS' do
 
   # Pods for LTKA_iOS
   pod 'Masonry'
-  #pod 'SDWebImage', '~> 5.0'
+  pod 'SDWebImage', '~> 5.0'
+  pod 'AFNetworking', '~> 4.0'
+  pod 'WHToast', '~>0.0.8'
 
   target 'LTKA_iOSTests' do
     inherit! :search_paths

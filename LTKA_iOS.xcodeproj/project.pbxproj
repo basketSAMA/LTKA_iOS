@@ -8,7 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1512068EA16579168E4EBC2D /* Pods_LTKA_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84417384C70C47A309AAFDDD /* Pods_LTKA_iOSTests.framework */; };
+		6612F152263F0B28006ED45C /* BillTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612F151263F0B28006ED45C /* BillTableViewCell.m */; };
+		6612F15626417ECE006ED45C /* DataArrayGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612F15526417ECE006ED45C /* DataArrayGetter.m */; };
+		6612F15A2646B3E0006ED45C /* LTKAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612F1592646B3E0006ED45C /* LTKAContext.m */; };
+		6612F15D2646B59A006ED45C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612F15C2646B59A006ED45C /* User.m */; };
+		6612F1622646EA83006ED45C /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612F1612646EA83006ED45C /* HttpService.m */; };
+		6612F1672646F5CA006ED45C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612F1662646F5CA006ED45C /* RegisterViewController.m */; };
+		6612F16A26470C8F006ED45C /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612F16926470C8F006ED45C /* MineViewController.m */; };
 		6679703F2609C05D00EA4D13 /* KeepAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6679703E2609C05D00EA4D13 /* KeepAccountsViewController.m */; };
+		66797046260DDC4F00EA4D13 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 66797045260DDC4F00EA4D13 /* Bill.m */; };
+		6679704F261EDC9100EA4D13 /* BillGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6679704E261EDC9100EA4D13 /* BillGroup.m */; };
+		66797056261EE8E000EA4D13 /* TimeGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 66797055261EE8E000EA4D13 /* TimeGetter.m */; };
 		66D40C752603057F00FC76E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C742603057F00FC76E2 /* AppDelegate.m */; };
 		66D40C782603057F00FC76E2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C772603057F00FC76E2 /* SceneDelegate.m */; };
 		66D40C7B2603057F00FC76E2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D40C7A2603057F00FC76E2 /* ViewController.m */; };
@@ -46,8 +56,28 @@
 		410A4378A3272B31E25CCE79 /* Pods-LTKA_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTKA_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-LTKA_iOSTests/Pods-LTKA_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		47F858D8F590ADF23EBEB415 /* Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-LTKA_iOS-LTKA_iOSUITests/Pods-LTKA_iOS-LTKA_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5A386D154AC61A530C790782 /* Pods_LTKA_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTKA_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6612F150263F0B28006ED45C /* BillTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillTableViewCell.h; sourceTree = "<group>"; };
+		6612F151263F0B28006ED45C /* BillTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillTableViewCell.m; sourceTree = "<group>"; };
+		6612F15426417ECE006ED45C /* DataArrayGetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataArrayGetter.h; sourceTree = "<group>"; };
+		6612F15526417ECE006ED45C /* DataArrayGetter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataArrayGetter.m; sourceTree = "<group>"; };
+		6612F1582646B3E0006ED45C /* LTKAContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTKAContext.h; sourceTree = "<group>"; };
+		6612F1592646B3E0006ED45C /* LTKAContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTKAContext.m; sourceTree = "<group>"; };
+		6612F15B2646B59A006ED45C /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		6612F15C2646B59A006ED45C /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		6612F1602646EA83006ED45C /* HttpService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpService.h; sourceTree = "<group>"; };
+		6612F1612646EA83006ED45C /* HttpService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpService.m; sourceTree = "<group>"; };
+		6612F1652646F5CA006ED45C /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		6612F1662646F5CA006ED45C /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		6612F16826470C8F006ED45C /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		6612F16926470C8F006ED45C /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		6679703D2609C05D00EA4D13 /* KeepAccountsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeepAccountsViewController.h; sourceTree = "<group>"; };
 		6679703E2609C05D00EA4D13 /* KeepAccountsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeepAccountsViewController.m; sourceTree = "<group>"; };
+		66797044260DDC4F00EA4D13 /* Bill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
+		66797045260DDC4F00EA4D13 /* Bill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
+		6679704D261EDC9100EA4D13 /* BillGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillGroup.h; sourceTree = "<group>"; };
+		6679704E261EDC9100EA4D13 /* BillGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillGroup.m; sourceTree = "<group>"; };
+		66797054261EE8E000EA4D13 /* TimeGetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeGetter.h; sourceTree = "<group>"; };
+		66797055261EE8E000EA4D13 /* TimeGetter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeGetter.m; sourceTree = "<group>"; };
 		66D40C702603057F00FC76E2 /* LTKA_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTKA_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D40C732603057F00FC76E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		66D40C742603057F00FC76E2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -109,13 +139,78 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6612F153263F0B44006ED45C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6612F150263F0B28006ED45C /* BillTableViewCell.h */,
+				6612F151263F0B28006ED45C /* BillTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6612F15E2646DBA4006ED45C /* MineModule */ = {
+			isa = PBXGroup;
+			children = (
+				6612F1642646F5AA006ED45C /* ViewController */,
+				6612F16826470C8F006ED45C /* MineViewController.h */,
+				6612F16926470C8F006ED45C /* MineViewController.m */,
+			);
+			path = MineModule;
+			sourceTree = "<group>";
+		};
+		6612F1642646F5AA006ED45C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6612F1652646F5CA006ED45C /* RegisterViewController.h */,
+				6612F1662646F5CA006ED45C /* RegisterViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6612F16B2647D0BF006ED45C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		667970312609BBF700EA4D13 /* KeepAccountsModule */ = {
 			isa = PBXGroup;
 			children = (
+				6612F16B2647D0BF006ED45C /* ViewController */,
+				6612F153263F0B44006ED45C /* Cell */,
 				6679703D2609C05D00EA4D13 /* KeepAccountsViewController.h */,
 				6679703E2609C05D00EA4D13 /* KeepAccountsViewController.m */,
 			);
 			path = KeepAccountsModule;
+			sourceTree = "<group>";
+		};
+		66797043260DDBF400EA4D13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				66797044260DDC4F00EA4D13 /* Bill.h */,
+				66797045260DDC4F00EA4D13 /* Bill.m */,
+				6679704D261EDC9100EA4D13 /* BillGroup.h */,
+				6679704E261EDC9100EA4D13 /* BillGroup.m */,
+				6612F15B2646B59A006ED45C /* User.h */,
+				6612F15C2646B59A006ED45C /* User.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		66797053261EE8AC00EA4D13 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				66797054261EE8E000EA4D13 /* TimeGetter.h */,
+				66797055261EE8E000EA4D13 /* TimeGetter.m */,
+				6612F15426417ECE006ED45C /* DataArrayGetter.h */,
+				6612F15526417ECE006ED45C /* DataArrayGetter.m */,
+				6612F1582646B3E0006ED45C /* LTKAContext.h */,
+				6612F1592646B3E0006ED45C /* LTKAContext.m */,
+				6612F1602646EA83006ED45C /* HttpService.h */,
+				6612F1612646EA83006ED45C /* HttpService.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		66D40C672603057F00FC76E2 = {
@@ -143,6 +238,9 @@
 		66D40C722603057F00FC76E2 /* LTKA_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				66797043260DDBF400EA4D13 /* Model */,
+				6612F15E2646DBA4006ED45C /* MineModule */,
+				66797053261EE8AC00EA4D13 /* Utils */,
 				667970312609BBF700EA4D13 /* KeepAccountsModule */,
 				66D40C732603057F00FC76E2 /* AppDelegate.h */,
 				66D40C742603057F00FC76E2 /* AppDelegate.m */,
@@ -427,11 +525,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6612F15626417ECE006ED45C /* DataArrayGetter.m in Sources */,
+				66797046260DDC4F00EA4D13 /* Bill.m in Sources */,
+				66797056261EE8E000EA4D13 /* TimeGetter.m in Sources */,
 				66D40C7B2603057F00FC76E2 /* ViewController.m in Sources */,
 				6679703F2609C05D00EA4D13 /* KeepAccountsViewController.m in Sources */,
 				66D40C752603057F00FC76E2 /* AppDelegate.m in Sources */,
+				6612F1622646EA83006ED45C /* HttpService.m in Sources */,
+				6679704F261EDC9100EA4D13 /* BillGroup.m in Sources */,
+				6612F152263F0B28006ED45C /* BillTableViewCell.m in Sources */,
+				6612F15D2646B59A006ED45C /* User.m in Sources */,
 				66D40C862603058100FC76E2 /* main.m in Sources */,
+				6612F1672646F5CA006ED45C /* RegisterViewController.m in Sources */,
+				6612F16A26470C8F006ED45C /* MineViewController.m in Sources */,
 				66D40C782603057F00FC76E2 /* SceneDelegate.m in Sources */,
+				6612F15A2646B3E0006ED45C /* LTKAContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
