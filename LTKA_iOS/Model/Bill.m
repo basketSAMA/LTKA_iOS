@@ -14,9 +14,10 @@
 
 @implementation Bill
 
-- (Bill *)initWithBelong:(NSString *)belong andDetails:(NSString *)details andRealTime:(nullable NSString *)realTime andMoney:(NSString *)money andBillType:(BillType)billType andBillConcreteType:(BillConcreteType)billConcreteType andBillFlowType:(BillFlowType)billFlowType {
+- (instancetype)initWithBelong:(NSString *)belong andBelongUserId:(NSInteger)belongUserId andDetails:(NSString *)details andRealTime:(nullable NSString *)realTime andMoney:(NSString *)money andBillType:(BillType)billType andBillConcreteType:(BillConcreteType)billConcreteType andBillFlowType:(BillFlowType)billFlowType {
     if(self=[super init]){
         _belong = belong;
+        _belongUserId = belongUserId;
         _details = details;
         _createTime = [[TimeGetter shareInstance] currentDateStrWithDateFormat:@"YYYY-MM-dd hh:mm"];
         _realTime = realTime ?: [[TimeGetter shareInstance] currentDateStrWithDateFormat:@"YYYY-MM-dd hh:mm"];
@@ -24,6 +25,23 @@
         _billType = billType;
         _billConcreteType = billConcreteType;
         _billFlowType = billFlowType;
+    }
+    return self;
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict {
+    self = [super init];
+    if(self) {
+        self.billId = ((NSNumber *)dict[@"billId"]).integerValue;
+        self.belong = dict[@"belong"];
+        self.belongUserId = ((NSNumber *)dict[@"belongUserId"]).integerValue;
+        self.details = dict[@"details"];
+        self.createTime = dict[@"createTime"];
+        self.realTime = dict[@"realTime"];
+        self.money = dict[@"money"];
+        self.billType = ((NSNumber *)dict[@"billType"]).integerValue;
+        self.billConcreteType = ((NSNumber *)dict[@"billConcreteType"]).integerValue;
+        self.billFlowType = ((NSNumber *)dict[@"billFlowType"]).integerValue;
     }
     return self;
 }

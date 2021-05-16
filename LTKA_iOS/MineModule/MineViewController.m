@@ -33,8 +33,7 @@
     self.navigationItem.title = @"我的";
     // Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Register_Notification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Log_In_Notification object:nil];
+    [self addObservers];
     
     [self.view addSubview:self.logInYes];
     [self.logInYes mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -134,10 +133,29 @@
     [[LTKAContext shareInstance] setIsLogIn:NO];
     [[NSNotificationCenter defaultCenter] postNotificationName:M_Log_Out_Notification object:nil];
     [self setup];
+    NSString*appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 }
 
 - (void)logInOrRegisterBtnClick:(UIButton *)btn {
     [self.navigationController pushViewController:[RegisterViewController new] animated:YES];
+}
+
+#pragma mark - 广播
+- (void)addObservers {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Register_Notification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Log_In_Notification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Create_Ledger_Notification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Join_Ledger_Notification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Quite_Ledger_Notification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Delete_Ledger_Notification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Modify_User_Notification object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

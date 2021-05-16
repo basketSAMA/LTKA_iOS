@@ -28,6 +28,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, assign) NSInteger billId;
 @property (nonatomic, strong) NSString *belong;
+@property (nonatomic, assign) NSInteger belongUserId;
 @property (nonatomic, strong) NSString *details;
 @property (nonatomic, copy) NSString *createTime;   // @"YYYY-MM-dd hh:mm"
 @property (nonatomic, strong) NSString *realTime;   // @"YYYY-MM-dd hh:mm"
@@ -36,7 +37,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BillConcreteType billConcreteType;
 @property (nonatomic, assign) BillFlowType billFlowType;
 
-- (Bill *)initWithBelong:(NSString *)belong andDetails:(NSString *)details andRealTime:(nullable NSString *)realTime andMoney:(NSString *)money andBillType:(BillType)billType andBillConcreteType:(BillConcreteType)billConcreteType andBillFlowType:(BillFlowType)billFlowType;
+- (instancetype)initWithBelong:(NSString *)belong andBelongUserId:(NSInteger)belongUserId andDetails:(NSString *)details andRealTime:(nullable NSString *)realTime andMoney:(NSString *)money andBillType:(BillType)billType andBillConcreteType:(BillConcreteType)billConcreteType andBillFlowType:(BillFlowType)billFlowType;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
 
 @end
 

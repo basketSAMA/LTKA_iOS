@@ -10,6 +10,7 @@ target 'LTKA_iOS' do
   pod 'SDWebImage', '~> 5.0'
   pod 'AFNetworking', '~> 4.0'
   pod 'WHToast', '~>0.0.8'
+  pod "VHBoomMenuButton/ObjC"
 
   target 'LTKA_iOSTests' do
     inherit! :search_paths

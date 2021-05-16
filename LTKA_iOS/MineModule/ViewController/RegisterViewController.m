@@ -27,8 +27,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerFinished:) name:U_Http_Service_Register_Notification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logInFinished:) name:U_Http_Service_Log_In_Notification object:nil];
+    [self addObservers];
     
     UIView *view = [UIView new];
     [self.view addSubview:view];
@@ -78,47 +77,41 @@
 
 - (void)btnClick {
     if([@"" isEqualToString:self.email.text]) {
-        [WHToast showMessage:@"邮箱不能为空" originY:200 duration:2 finishHandler:nil];
+        [WHToast showMessage:@"邮箱不能为空" originY:[[LTKAContext shareInstance] toastY] duration:2 finishHandler:nil];
     } else if([@"" isEqualToString:self.password.text]) {
-        [WHToast showMessage:@"密码不能为空" originY:200 duration:2 finishHandler:nil];
+        [WHToast showMessage:@"密码不能为空" originY:[[LTKAContext shareInstance] toastY] duration:2 finishHandler:nil];
     } else {
         [[HttpService shareInstance] registerServiceWithEmail:self.email.text andPassword:self.password.text];
     }
 }
 
+#pragma mark - 广播
+- (void)addObservers {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerFinished:) name:U_Http_Service_Register_Notification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logInFinished:) name:U_Http_Service_Log_In_Notification object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - 广播响应事件
 - (void)registerFinished:(NSNotification *)notification {
     NSInteger code = ((NSNumber *)notification.userInfo[@"code"]).integerValue;
-    [WHToast showMessage:notification.userInfo[@"msg"] originY:200 duration:2 finishHandler:nil];
-    switch (code) {
-        case 0:
-            [self.navigationController popViewControllerAnimated:YES];
-            break;
-        case 1:
-            [[HttpService shareInstance] logInServiceWithEmail:self.email.text andPassword:self.password.text];
-            break;
-        default:
-            break;
+    [WHToast showMessage:notification.userInfo[@"msg"] originY:[[LTKAContext shareInstance] toastY] duration:2 finishHandler:nil];
+    if(code == 0) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else if(code == 1) {
+        [[HttpService shareInstance] logInServiceWithEmail:self.email.text andPassword:self.password.text];
     }
 }
 
 - (void)logInFinished:(NSNotification *)notification {
     NSInteger code = ((NSNumber *)notification.userInfo[@"code"]).integerValue;
-    [WHToast showMessage:notification.userInfo[@"msg"] originY:200 duration:2 finishHandler:nil];
-    switch (code) {
-        case 0:
-            [self.navigationController popViewControllerAnimated:YES];
-            break;
-        case 1:
-            break;
-        case 2:
-            break;
-        default:
-            break;
+    [WHToast showMessage:notification.userInfo[@"msg"] originY:[[LTKAContext shareInstance] toastY] duration:2 finishHandler:nil];
+    if(code == 0) {
+        [self.navigationController popViewControllerAnimated:YES];
     }
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

@@ -15,6 +15,8 @@
 		6612F1622646EA83006ED45C /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612F1612646EA83006ED45C /* HttpService.m */; };
 		6612F1672646F5CA006ED45C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612F1662646F5CA006ED45C /* RegisterViewController.m */; };
 		6612F16A26470C8F006ED45C /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612F16926470C8F006ED45C /* MineViewController.m */; };
+		662FB4F1264FE46A00D568D8 /* JoinLedgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662FB4F0264FE46A00D568D8 /* JoinLedgerViewController.m */; };
+		662FB4F4264FF2A300D568D8 /* AddBillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662FB4F3264FF2A300D568D8 /* AddBillViewController.m */; };
 		6679703F2609C05D00EA4D13 /* KeepAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6679703E2609C05D00EA4D13 /* KeepAccountsViewController.m */; };
 		66797046260DDC4F00EA4D13 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 66797045260DDC4F00EA4D13 /* Bill.m */; };
 		6679704F261EDC9100EA4D13 /* BillGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6679704E261EDC9100EA4D13 /* BillGroup.m */; };
@@ -70,6 +72,10 @@
 		6612F1662646F5CA006ED45C /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		6612F16826470C8F006ED45C /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		6612F16926470C8F006ED45C /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		662FB4EF264FE46A00D568D8 /* JoinLedgerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoinLedgerViewController.h; sourceTree = "<group>"; };
+		662FB4F0264FE46A00D568D8 /* JoinLedgerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoinLedgerViewController.m; sourceTree = "<group>"; };
+		662FB4F2264FF2A300D568D8 /* AddBillViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddBillViewController.h; sourceTree = "<group>"; };
+		662FB4F3264FF2A300D568D8 /* AddBillViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddBillViewController.m; sourceTree = "<group>"; };
 		6679703D2609C05D00EA4D13 /* KeepAccountsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeepAccountsViewController.h; sourceTree = "<group>"; };
 		6679703E2609C05D00EA4D13 /* KeepAccountsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeepAccountsViewController.m; sourceTree = "<group>"; };
 		66797044260DDC4F00EA4D13 /* Bill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
@@ -170,6 +176,10 @@
 		6612F16B2647D0BF006ED45C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				662FB4EF264FE46A00D568D8 /* JoinLedgerViewController.h */,
+				662FB4F0264FE46A00D568D8 /* JoinLedgerViewController.m */,
+				662FB4F2264FF2A300D568D8 /* AddBillViewController.h */,
+				662FB4F3264FF2A300D568D8 /* AddBillViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -532,12 +542,14 @@
 				6679703F2609C05D00EA4D13 /* KeepAccountsViewController.m in Sources */,
 				66D40C752603057F00FC76E2 /* AppDelegate.m in Sources */,
 				6612F1622646EA83006ED45C /* HttpService.m in Sources */,
+				662FB4F1264FE46A00D568D8 /* JoinLedgerViewController.m in Sources */,
 				6679704F261EDC9100EA4D13 /* BillGroup.m in Sources */,
 				6612F152263F0B28006ED45C /* BillTableViewCell.m in Sources */,
 				6612F15D2646B59A006ED45C /* User.m in Sources */,
 				66D40C862603058100FC76E2 /* main.m in Sources */,
 				6612F1672646F5CA006ED45C /* RegisterViewController.m in Sources */,
 				6612F16A26470C8F006ED45C /* MineViewController.m in Sources */,
+				662FB4F4264FF2A300D568D8 /* AddBillViewController.m in Sources */,
 				66D40C782603057F00FC76E2 /* SceneDelegate.m in Sources */,
 				6612F15A2646B3E0006ED45C /* LTKAContext.m in Sources */,
 			);

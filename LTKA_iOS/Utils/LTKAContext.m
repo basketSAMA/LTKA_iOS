@@ -26,7 +26,7 @@
 }
 
 - (NSString *)urlPrefix {
-    return @"http://192.168.31.103:8080/LTKAServer";
+    return @"http://192.168.43.213:8080/LTKAServer";
 }
 
 @end

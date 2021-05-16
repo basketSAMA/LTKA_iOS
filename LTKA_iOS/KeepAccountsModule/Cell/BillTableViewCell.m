@@ -7,6 +7,7 @@
 
 #import "BillTableViewCell.h"
 #import "DataArrayGetter.h"
+#import "LTKAContext.h"
 
 #import <Masonry/Masonry.h>
 
@@ -125,7 +126,7 @@
     self.billConcreteTypeImageView.image = [UIImage imageNamed:[[DataArrayGetter shareInstance] billConcreteTypeImageNameArray][bill.billConcreteType]];
     self.billConcreteTypeLabel.text = [[DataArrayGetter shareInstance] billConcreteTypeArray][bill.billConcreteType];
     self.moneyLabel.text = bill.money;
-    self.belongLabel.text = bill.belong;
+    self.belongLabel.text = bill.belongUserId == [LTKAContext shareInstance].user.userId ? @"我" : bill.belong;
 }
 
 - (void)awakeFromNib {

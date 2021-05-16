@@ -23,6 +23,7 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     if(![scene isKindOfClass:[UIWindowScene class]]) return;
     self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene*)scene];
+    [[UIApplication sharedApplication] delegate].window = self.window;
     UITabBarController* tab = [UITabBarController new];
     self.window.rootViewController = tab;
     {

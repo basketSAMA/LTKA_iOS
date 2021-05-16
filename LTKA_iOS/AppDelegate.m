@@ -7,6 +7,8 @@
 
 #import "AppDelegate.h"
 #import "LTKAContext.h"
+#import "KeepAccountsModule/KeepAccountsViewController.h"
+#import "MineModule/MineViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +19,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[LTKAContext shareInstance] setIsLogIn:NO];
+    LTKAContext *context = [LTKAContext shareInstance];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    if([userDefault objectForKey:@"email"]) {
+        context.isLogIn = YES;
+        User *user = [User new];
+        user.userId = [userDefault integerForKey:@"userId"];
+        user.userName = [userDefault objectForKey:@"userName"];
+        user.email = [userDefault objectForKey:@"email"];
+        user.password = [userDefault objectForKey:@"password"];
+        user.conpetence = [userDefault integerForKey:@"conpetence"];
+        user.ledgerId = [userDefault integerForKey:@"ledgerId"];
+        context.user = user;
+    } else {
+        context.isLogIn = NO;
+    }
     return YES;
 }
 
