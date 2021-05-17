@@ -66,7 +66,6 @@
         @"email":email,
         @"password":password
     };
-    // TODO:循环引用造成的内存泄露
     [self basePostServiceWithParams:params andAppendingUrl:@"/RegisterServlet" andSuccess:^(NSURLSessionDataTask *task, id  _Nullable responseObject) {
         NSNumber *code = responseObject[@"code"];
         NSString *msg = responseObject[@"msg"];
@@ -265,7 +264,7 @@
 }
 
 #pragma mark - 添加账单
-- (void)addBillServiceWithBill:(Bill *)bill andCompletedBlock:(void (^)(NSInteger code, NSString *msg))completedBlock {
+- (void)addBillServiceWithBill:(Bill *)bill {
     NSDictionary *params = @{
         @"belong":bill.belong,
         @"details":bill.details,
@@ -281,20 +280,60 @@
     [self basePostServiceWithParams:params andAppendingUrl:@"/AddBillServlet" andSuccess:^(NSURLSessionDataTask *task, id  _Nullable responseObject) {
         NSNumber *code = responseObject[@"code"];
         NSString *msg = responseObject[@"msg"];
-        completedBlock(code.integerValue, msg);
+        [[NSNotificationCenter defaultCenter] postNotificationName:U_Http_Service_Add_Bill_Notification object:nil userInfo:@{@"code":code, @"msg":msg}];
     } andFailure:^(NSURLSessionDataTask * _Nullable task, NSError *error) {
-        completedBlock(2, @"服务器异常");
+        [[NSNotificationCenter defaultCenter] postNotificationName:U_Http_Service_Add_Bill_Notification object:nil userInfo:@{@"code":@(2), @"msg":@"服务器异常"}];
     }];
 }
 
 #pragma mark - 删除账单
-- (void)deleteBillServiceWithBill:(Bill *)bill {
-    
+- (void)deleteBillServiceWithBillId:(NSInteger)billId {
+    NSDictionary *params = @{
+        @"billId":@(billId)
+    };
+    [self basePostServiceWithParams:params andAppendingUrl:@"/DeleteBillServlet" andSuccess:^(NSURLSessionDataTask *task, id  _Nullable responseObject) {
+        NSNumber *code = responseObject[@"code"];
+        NSString *msg = responseObject[@"msg"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:U_Http_Service_Delete_Bill_Notification object:nil userInfo:@{@"code":code, @"msg":msg}];
+    } andFailure:^(NSURLSessionDataTask * _Nullable task, NSError *error) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:U_Http_Service_Delete_Bill_Notification object:nil userInfo:@{@"code":@(2), @"msg":@"服务器异常"}];
+    }];
 }
 
 #pragma mark - 修改账单
 - (void)modifyBillServiceWithBill:(Bill *)bill {
-    
+    NSDictionary *params = [Bill billToDict:bill];
+    [self basePostServiceWithParams:params andAppendingUrl:@"/ModifyBillServlet" andSuccess:^(NSURLSessionDataTask *task, id  _Nullable responseObject) {
+        NSNumber *code = responseObject[@"code"];
+        NSString *msg = responseObject[@"msg"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:U_Http_Service_Modify_Bill_Notification object:nil userInfo:@{@"code":code, @"msg":msg}];
+    } andFailure:^(NSURLSessionDataTask * _Nullable task, NSError *error) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:U_Http_Service_Modify_Bill_Notification object:nil userInfo:@{@"code":@(2), @"msg":@"服务器异常"}];
+    }];
+}
+
+#pragma mark - 查找账单
+- (void)searchBillServiceWithBill:(Bill *)bill andCompletedBlock:(void (^)(NSInteger code, NSString *msg, NSArray<Bill *> *ledgerArray))completedBlock {
+    NSDictionary *params = @{
+        @"belong":bill.belong,
+        @"details":bill.details,
+        @"realTime":bill.realTime,
+    };
+    [self basePostServiceWithParams:params andAppendingUrl:@"/SearchBillServlet" andSuccess:^(NSURLSessionDataTask *task, id  _Nullable responseObject) {
+        NSNumber *code = responseObject[@"code"];
+        NSString *msg = responseObject[@"msg"];
+        NSArray *jsonData = [self decodeJsonString:responseObject[@"data"]];
+        NSMutableArray<Bill *> *data = [NSMutableArray array];
+        if(jsonData != nil) {
+            for(NSDictionary *dict in jsonData) {
+                Bill *bill = [[Bill alloc] initWithDictionary:dict];
+                [data addObject:bill];
+            }
+        }
+        completedBlock(code.integerValue, msg, data);
+    } andFailure:^(NSURLSessionDataTask * _Nullable task, NSError *error) {
+        completedBlock(2, @"服务器异常", nil);
+    }];
 }
 
 @end

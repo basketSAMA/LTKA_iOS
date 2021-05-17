@@ -33,6 +33,8 @@
             [self setupViewForExpenditure];
         }
     }
+    // 选中不变色
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     return self;
 }
 
@@ -125,7 +127,7 @@
     }
     self.billConcreteTypeImageView.image = [UIImage imageNamed:[[DataArrayGetter shareInstance] billConcreteTypeImageNameArray][bill.billConcreteType]];
     self.billConcreteTypeLabel.text = [[DataArrayGetter shareInstance] billConcreteTypeArray][bill.billConcreteType];
-    self.moneyLabel.text = bill.money;
+    self.moneyLabel.text = [NSString stringWithFormat:@"¥%@", bill.money];
     self.belongLabel.text = bill.belongUserId == [LTKAContext shareInstance].user.userId ? @"我" : bill.belong;
 }
 

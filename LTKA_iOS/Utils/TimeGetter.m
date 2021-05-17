@@ -28,6 +28,15 @@
     return dateString;
 }
 
+// 获取时间
+- (NSString *)dateStrWithDateFormat:(NSString *)format andDate:(NSDate *)date {
+    if (format == nil) format = @"YYYY-MM-dd hh:mm:ss";
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];// 创建一个时间格式化对象
+    [dateFormatter setDateFormat:format];// 设定时间格式,这里可以设置成自己需要的格式
+    NSString *dateString = [dateFormatter stringFromDate:date];// 将时间转化成字符串
+    return dateString;
+}
+
 // 获取当前时间戳
 - (NSString *)currentTimeStr {
     NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];// 获取当前时间0秒后的时间

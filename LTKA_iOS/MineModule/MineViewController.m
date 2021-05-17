@@ -6,8 +6,10 @@
 //
 
 #import "MineViewController.h"
-#import "LTKAContext.h"
 #import "RegisterViewController.h"
+#import "ModifyUserViewController.h"
+
+#import "LTKAContext.h"
 
 #import <Masonry/Masonry.h>
 
@@ -16,6 +18,7 @@
 @property (nonatomic, strong) UILabel *userName;
 @property (nonatomic, strong) UILabel *email;
 @property (nonatomic, strong) UILabel *conpetence;
+@property (nonatomic, strong) UIButton *modifyUserBtn;
 @property (nonatomic, strong) UIButton *logOutBtn;
 
 @property (nonatomic, strong) UIButton *logInOrRegisterBtn;
@@ -35,6 +38,12 @@
     
     [self addObservers];
     
+    // 背景图片（导航栏有毛玻璃效果）
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jihe"]];
+    imgView.frame = self.view.bounds;
+    imgView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:imgView];
+    
     [self.view addSubview:self.logInYes];
     [self.logInYes mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
@@ -53,9 +62,9 @@
 - (void) setup {
     LTKAContext *context = [LTKAContext shareInstance];
     if(context.isLogIn) {
-        self.userName.text = [@"用户名：" stringByAppendingString:context.user.userName];
-        self.email.text = [@"邮箱：" stringByAppendingString:context.user.email];
-        self.conpetence.text = [@"账本权限：" stringByAppendingString:context.user.conpetence == ConpetenceType_nil ? @"没有账本" : context.user.conpetence == ConpetenceType_creator ? @"账本创建者" : @"账本参与者"];
+        self.userName.text = [@"用户名: " stringByAppendingString:context.user.userName];
+        self.email.text = [@"邮箱: " stringByAppendingString:context.user.email];
+        self.conpetence.text = [@"账本权限: " stringByAppendingString:context.user.conpetence == ConpetenceType_nil ? @"没有账本" : context.user.conpetence == ConpetenceType_creator ? @"账本创建者" : @"账本参与者"];
         self.logInYes.hidden = NO;
         self.logInNo.hidden = YES;
     } else {
@@ -95,6 +104,17 @@
             make.top.equalTo(_email.mas_bottom).offset(10);
         }];
         
+        _modifyUserBtn = [UIButton new];
+        [_logInYes addSubview:_modifyUserBtn];
+        [_modifyUserBtn setTitle:@"修改信息" forState:UIControlStateNormal];
+        [_modifyUserBtn setBackgroundColor:[UIColor grayColor]];
+        [_modifyUserBtn addTarget:self action:@selector(modifyUserBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_modifyUserBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(_logInYes).multipliedBy(0.9);
+            make.centerX.equalTo(_logInYes);
+            make.top.equalTo(_conpetence.mas_bottom).offset(10);
+        }];
+        
         _logOutBtn = [UIButton new];
         [_logInYes addSubview:_logOutBtn];
         [_logOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
@@ -103,7 +123,7 @@
         [_logOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(_logInYes).multipliedBy(0.9);
             make.centerX.equalTo(_logInYes);
-            make.top.equalTo(_conpetence.mas_bottom).offset(10);
+            make.top.equalTo(_modifyUserBtn.mas_bottom).offset(10);
             make.bottom.equalTo(_logInYes.mas_bottom);
         }];
     }
@@ -127,6 +147,10 @@
         }];
     }
     return _logInNo;
+}
+
+- (void)modifyUserBtnClick:(UIButton *)btn {
+    [self.navigationController pushViewController:[ModifyUserViewController new] animated:YES];
 }
 
 - (void)logOutBtnClick:(UIButton *)btn {

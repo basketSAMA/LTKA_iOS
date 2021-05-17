@@ -14,14 +14,29 @@ typedef enum : NSUInteger {
     BillType_expenditure,       // 支出
 } BillType; // 账单类型
 
+// @[@"食物", @"衣服", @"住宿", @"旅行", @"红包", @"工资", @"奖金", @"人情", @"医疗", @"教学", @"娱乐", @"杂物", @"健康"]
 typedef enum : NSUInteger {
-    BillConcreteType_eating,        // 待定
+    BillConcreteType_eating,
     BillConcreteType_dressing,
+    BillConcreteType_staying,
+    BillConcreteType_travelling,
+    BillConcreteType_hongbao,
+    BillConcreteType_wages,
+    BillConcreteType_bonus,
+    BillConcreteType_favor,
+    BillConcreteType_medical,
+    BillConcreteType_teaching,
+    BillConcreteType_entertainment,
+    BillConcreteType_sundries,
+    BillConcreteType_health
 } BillConcreteType; // 账单具体类型
 
+// @[@"现金", @"支付宝", @"微信", @"网银"]
 typedef enum : NSUInteger {
-    BillFlowType_cash,      // 现金
-    BillFlowType_alipay,    // 支付宝
+    BillFlowType_cash,
+    BillFlowType_alipay,
+    BillFlowType_wechat,
+    BillFlowType_onlinebanking
 } BillFlowType; // 出入帐方式
 
 @interface Bill : NSObject
@@ -39,6 +54,8 @@ typedef enum : NSUInteger {
 
 - (instancetype)initWithBelong:(NSString *)belong andBelongUserId:(NSInteger)belongUserId andDetails:(NSString *)details andRealTime:(nullable NSString *)realTime andMoney:(NSString *)money andBillType:(BillType)billType andBillConcreteType:(BillConcreteType)billConcreteType andBillFlowType:(BillFlowType)billFlowType;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
+
++ (NSDictionary *)billToDict:(Bill *)bill;
 
 @end
 

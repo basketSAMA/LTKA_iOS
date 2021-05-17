@@ -7,8 +7,6 @@
 
 #import "AppDelegate.h"
 #import "LTKAContext.h"
-#import "KeepAccountsModule/KeepAccountsViewController.h"
-#import "MineModule/MineViewController.h"
 
 @interface AppDelegate ()
 

@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 获取当前时间
 - (NSString *)currentDateStrWithDateFormat:(NSString *)format;
+// 获取时间
+- (NSString *)dateStrWithDateFormat:(NSString *)format andDate:(NSDate *)date;
 // 获取当前时间戳
 - (NSString *)currentTimeStr;
 // 时间戳转时间,时间戳为13位是精确到毫秒的，10位精确到秒

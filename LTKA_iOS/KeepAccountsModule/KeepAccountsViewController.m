@@ -6,6 +6,10 @@
 //
 
 #import "KeepAccountsViewController.h"
+#import "JoinLedgerViewController.h"
+#import "AddBillViewController.h"
+#import "ShowBillViewController.h"
+#import "FindBillViewController.h"
 
 #import "Bill.h"
 #import "BillGroup.h"
@@ -14,18 +18,11 @@
 #import "LTKAContext.h"
 #import "HttpService.h"
 
-#import "JoinLedgerViewController.h"
-#import "AddBillViewController.h"
-
 #import <WHToast/WHToast.h>
 #import <VHBoomMenuButton/VHBoomMenuButton.h>
 
 @interface KeepAccountsViewController () <UITableViewDelegate, UITableViewDataSource>
 
-// 表格
-@property (nonatomic, strong) UITableView *tableView;
-// 数组
-@property (nonatomic, strong) NSMutableArray *dataArray;
 // 异常状态文字
 @property (nonatomic, strong) UILabel *label;
 // 悬浮菜单按钮
@@ -35,6 +32,15 @@
 @end
 
 @implementation KeepAccountsViewController
+
++ (instancetype)shareInstance {
+    static KeepAccountsViewController *kavc;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        kavc = [[KeepAccountsViewController alloc] init];
+    });
+    return kavc;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -58,6 +64,12 @@
     [[LTKAContext shareInstance] setScreenFrame:screenFrame];
     [[LTKAContext shareInstance] setToastY:self.view.bounds.size.height - 44 - 49 - 40];
     
+    // 背景图片（导航栏有毛玻璃效果）
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shuimo"]];
+    imgView.frame = self.view.bounds;
+    imgView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:imgView];
+    
     [self.view addSubview:self.label];
     [self.label setFrame:screenFrame];
     [self.label setTextAlignment:NSTextAlignmentCenter];
@@ -66,6 +78,11 @@
     [self.tableView setFrame:screenFrame];
     [self.tableView registerClass:[BillTableViewCell class] forCellReuseIdentifier:KA_Bill_Cell_Identifier_income];
     [self.tableView registerClass:[BillTableViewCell class] forCellReuseIdentifier:KA_Bill_Cell_Identifier_expenditure];
+    
+//    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shuimo"]];
+//    imgView.frame = screenFrame;
+//    imgView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+//    self.tableView.backgroundView = imgView;
     
     //下拉刷新
     UIRefreshControl *control = [[UIRefreshControl alloc] init];
@@ -81,7 +98,7 @@
     self.bmb1.buttonEnum = VHButtonHam;
     self.bmb1.piecePlaceEnum = VHPiecePlaceHAM_2;
     self.bmb1.buttonPlaceEnum = VHButtonPlaceHAM_2;
-    NSArray *imgs1 = @[@"img1", @"img2"];
+    NSArray *imgs1 = @[@"create_ledger", @"join_ledger"];
     NSArray *texts1 = @[@"创建账本", @"加入账本"];
     [self.bmb1 clearBuilders];
     for (int i = 0; i < self.bmb1.pieceNumber; i++) {
@@ -94,6 +111,7 @@
             }
         };
         builder.normalImageName = imgs1[i];
+        builder.imageSize = CGSizeMake(45, 45);
         builder.normalText = texts1[i];
 //            builder.normalSubText = @"Sub Text";
         [self.bmb1 addBuilder:builder];
@@ -107,7 +125,7 @@
     self.bmb2.buttonEnum = VHButtonTextInsideCircle;
     self.bmb2.piecePlaceEnum = VHPiecePlaceDOT_5_1;
     self.bmb2.buttonPlaceEnum = VHButtonPlaceSC_5_1;
-    NSArray *imgs2 = @[@"img1", @"img2", @"img3", @"img4", @"img4"];
+    NSArray *imgs2 = @[@"add_bill", @"search_bill", @"quite_ledger", @"delete_ledger", @"copy_code"];
     NSArray *texts2 = @[@"添加账单", @"查找账单", @"退出账本", @"删除账本", @"复制序列号"];
     [self.bmb2 clearBuilders];
     for (int i = 0; i < self.bmb2.pieceNumber; i++) {
@@ -115,16 +133,8 @@
         builder.clickedBlock = ^(int index) {
             if(index == 0) {
                 [self.navigationController pushViewController:[AddBillViewController new] animated:YES];
-//                User *user = [LTKAContext shareInstance].user;
-//                Bill *bill = [[Bill alloc] initWithBelong:user.userName andBelongUserId:user.userId andDetails:@"www" andRealTime:nil andMoney:@"20.5" andBillType:BillType_income andBillConcreteType:BillConcreteType_dressing andBillFlowType:BillFlowType_alipay];
-//                [[HttpService shareInstance] addBillServiceWithBill:bill andCompletedBlock:^(NSInteger code, NSString * _Nonnull msg) {
-//                    if(code == 0) {
-//                        [self requestData];
-//                    }
-//                    [WHToast showMessage:msg originY:[[LTKAContext shareInstance] toastY] duration:2 finishHandler:nil];
-//                }];
             } else if(index == 1) {
-                
+                [self.navigationController pushViewController:[FindBillViewController new] animated:YES];
             } else if(index == 2) {
                 User *user = [LTKAContext shareInstance].user;
                 [[HttpService shareInstance] quiteLedgerServiceWithLedgerId:user.ledgerId andUserId:user.userId];
@@ -136,6 +146,7 @@
             }
         };
         builder.normalImageName = imgs2[i];
+        builder.imageSize = CGSizeMake(45, 45);
         builder.normalText = texts2[i];
         [self.bmb2 addBuilder:builder];
     }
@@ -177,8 +188,11 @@
     [[HttpService shareInstance] getLedgerArrayServiceWithLedgerId:[[LTKAContext shareInstance] user].ledgerId andCompletedBlock:^(NSInteger code, NSString * _Nonnull msg, NSArray<Bill *> * _Nonnull ledgerArray) {
         if(code == 0) {
             [self.dataArray removeAllObjects];
-            [self.dataArray addObjectsFromArray:[[ledgerArray reverseObjectEnumerator] allObjects]];
+//            [self.dataArray addObjectsFromArray:[[ledgerArray reverseObjectEnumerator] allObjects]];
+            NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"realTime" ascending:NO];
+            [self.dataArray addObjectsFromArray:[ledgerArray sortedArrayUsingDescriptors:@[descriptor]]];
             [self.tableView reloadData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:KA_Request_Data_Notification object:nil];
         } else {
             [WHToast showMessage:msg originY:[[LTKAContext shareInstance] toastY] duration:2 finishHandler:nil];
             [LTKAContext shareInstance].user.conpetence = ConpetenceType_nil;
@@ -199,6 +213,8 @@
         [_tableView  setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         _tableView.delegate = self; //遵循协议
         _tableView.dataSource = self; //遵循数据源
+        // 透明背景
+        _tableView.backgroundColor = [UIColor clearColor];
     }
     return _tableView;
 }
@@ -228,11 +244,11 @@
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
-//分区，组数
+// 分区，组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
-//每个分区的行数
+// 每个分区的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
@@ -240,7 +256,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
 }
-//每个单元格的内容
+// 每个单元格的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     Bill *bill = self.dataArray[indexPath.row];
     BillTableViewCell *billTableViewCell = nil;
@@ -261,8 +277,17 @@
     }
     
     [billTableViewCell setBill:bill];
+    // 透明背景
+    billTableViewCell.backgroundColor = [UIColor clearColor];
 
     return billTableViewCell;
+}
+
+// 点击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Bill *bill = self.dataArray[indexPath.row];
+    ShowBillViewController *sbvc = [[ShowBillViewController alloc] initWithBillDict:[Bill billToDict:bill]];
+    [self.navigationController pushViewController:sbvc animated:YES];
 }
 
 #pragma mark - 广播
@@ -276,6 +301,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quiteOrDeleteLedger:) name:U_Http_Service_Quite_Ledger_Notification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quiteOrDeleteLedger:) name:U_Http_Service_Delete_Ledger_Notification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkSerialCode:) name:U_Http_Service_Check_Serial_Code_Notification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Add_Bill_Notification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Delete_Bill_Notification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Modify_Bill_Notification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Modify_User_Notification object:nil];
 }

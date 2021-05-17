@@ -27,9 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getLedgerArrayServiceWithLedgerId:(NSInteger)ledgerId andCompletedBlock:(void (^)(NSInteger code, NSString *msg, NSArray<Bill *> *ledgerArray))completedBlock;
 
-- (void)addBillServiceWithBill:(Bill *)bill andCompletedBlock:(void (^)(NSInteger code, NSString *msg))completedBlock;
-- (void)deleteBillServiceWithBill:(Bill *)bill;
+- (void)addBillServiceWithBill:(Bill *)bill;
+- (void)deleteBillServiceWithBillId:(NSInteger)billId;
 - (void)modifyBillServiceWithBill:(Bill *)bill;
+- (void)searchBillServiceWithBill:(Bill *)bill andCompletedBlock:(void (^)(NSInteger code, NSString *msg, NSArray<Bill *> *ledgerArray))completedBlock;
 
 @end
 

@@ -8,6 +8,7 @@
 #import "SceneDelegate.h"
 #import "ViewController.h"
 #import "KeepAccountsModule/KeepAccountsViewController.h"
+#import "PropertyModule/PropertyViewController.h"
 #import "MineModule/MineViewController.h"
 
 @interface SceneDelegate ()
@@ -27,23 +28,23 @@
     UITabBarController* tab = [UITabBarController new];
     self.window.rootViewController = tab;
     {
-        KeepAccountsViewController* vc = [KeepAccountsViewController new];
+        KeepAccountsViewController* vc = [KeepAccountsViewController shareInstance];
         vc.tabBarItem.title = @"记账";
-        vc.tabBarItem.image = [UIImage imageNamed:@"img1"];
-        vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img1"];
+        vc.tabBarItem.image = [UIImage imageNamed:@"kavc_tab"];
+        vc.tabBarItem.selectedImage = [UIImage imageNamed:@"kavc_tab"];
         UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
-//        [nav.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//        [nav.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault]; // 导航栏透明效果
 //        [nav.navigationBar setTranslucent:NO];
         [tab addChildViewController:nav];
     }
-//    {
-//        ViewController* vc = [ViewController new];
-//        vc.tabBarItem.title = @"资产";
-//        vc.tabBarItem.image = [UIImage imageNamed:@"img2"];
-//        vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img2"];
-//        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
-//        [tab addChildViewController:nav];
-//    }
+    {
+        PropertyViewController* vc = [PropertyViewController new];
+        vc.tabBarItem.title = @"资产";
+        vc.tabBarItem.image = [UIImage imageNamed:@"property_tab"];
+        vc.tabBarItem.selectedImage = [UIImage imageNamed:@"property_tab"];
+        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [tab addChildViewController:nav];
+    }
 //    {
 //        ViewController* vc = [ViewController new];
 //        vc.tabBarItem.title = @"发现";
@@ -55,8 +56,8 @@
     {
         MineViewController* vc = [MineViewController new];
         vc.tabBarItem.title = @"我的";
-        vc.tabBarItem.image = [UIImage imageNamed:@"img4"];
-        vc.tabBarItem.selectedImage = [UIImage imageNamed:@"img4"];
+        vc.tabBarItem.image = [UIImage imageNamed:@"mvc_tab"];
+        vc.tabBarItem.selectedImage = [UIImage imageNamed:@"mvc_tab"];
         UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [tab addChildViewController:nav];
     }

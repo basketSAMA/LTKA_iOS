@@ -46,4 +46,20 @@
     return self;
 }
 
++ (NSDictionary *)billToDict:(Bill *)bill {
+    NSDictionary *dict = @{
+        @"billId":@(bill.billId),
+        @"belong":bill.belong,
+        @"belongUserId":@(bill.belongUserId),
+        @"details":bill.details,
+        @"money":bill.money,
+        @"billType":@(bill.billType),
+        @"billConcreteType":@(bill.billConcreteType),
+        @"billFlowType":@(bill.billFlowType),
+        @"createTime":bill.createTime,
+        @"realTime":bill.realTime
+    };
+    return dict;
+}
+
 @end

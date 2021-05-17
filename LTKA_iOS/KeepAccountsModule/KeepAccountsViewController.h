@@ -11,6 +11,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KeepAccountsViewController : UIViewController
 
+// 表格
+@property (nonatomic, strong) UITableView *tableView;
+// 数组
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
++ (instancetype)shareInstance;
+
 @end
 
 NS_ASSUME_NONNULL_END

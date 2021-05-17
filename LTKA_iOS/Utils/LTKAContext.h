@@ -23,8 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 #define U_Http_Service_Quite_Ledger_Notification @"UtilHttpServiceQuiteLedgerNotification"
 
 #define U_Http_Service_Add_Bill_Notification @"UtilHttpServiceAddBillNotification"
+#define U_Http_Service_Modify_Bill_Notification @"UtilHttpServiceModifyBillNotification"
+#define U_Http_Service_Delete_Bill_Notification @"UtilHttpServiceDeleteBillNotification"
 
 #define M_Log_Out_Notification @"MineLogOutNotification"
+
+#define KA_Request_Data_Notification @"KeepAccountsRequestDataNotification"
 
 @interface LTKAContext : NSObject
 

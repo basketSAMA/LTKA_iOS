@@ -6,6 +6,7 @@
       "size" : "20x20"
     },
     {
+      "filename" : "yumaobi.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
@@ -16,6 +17,7 @@
       "size" : "29x29"
     },
     {
+      "filename" : "yumaobi-1.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
@@ -26,6 +28,7 @@
       "size" : "40x40"
     },
     {
+      "filename" : "yumaobi-2.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
@@ -36,6 +39,7 @@
       "size" : "60x60"
     },
     {
+      "filename" : "yumaobi-3.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -46,6 +50,7 @@
       "size" : "20x20"
     },
     {
+      "filename" : "yumaobi-4.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
@@ -56,6 +61,7 @@
       "size" : "29x29"
     },
     {
+      "filename" : "yumaobi-5.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
@@ -66,6 +72,7 @@
       "size" : "40x40"
     },
     {
+      "filename" : "yumaobi-6.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
@@ -76,11 +83,13 @@
       "size" : "76x76"
     },
     {
+      "filename" : "yumaobi-7.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
+      "filename" : "yumaobi-8.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
