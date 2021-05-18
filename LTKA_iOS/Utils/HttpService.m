@@ -318,6 +318,7 @@
         @"belong":bill.belong,
         @"details":bill.details,
         @"realTime":bill.realTime,
+        @"ledgerId":@([LTKAContext shareInstance].user.ledgerId)
     };
     [self basePostServiceWithParams:params andAppendingUrl:@"/SearchBillServlet" andSuccess:^(NSURLSessionDataTask *task, id  _Nullable responseObject) {
         NSNumber *code = responseObject[@"code"];

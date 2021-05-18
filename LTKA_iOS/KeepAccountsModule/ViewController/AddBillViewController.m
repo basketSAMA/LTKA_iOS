@@ -11,6 +11,7 @@
 #import "DataArrayGetter.h"
 #import "TimeGetter.h"
 #import "Bill.h"
+#import "LTKAAlert.h"
 
 #import <Masonry/Masonry.h>
 #import <WHToast/WHToast.h>
@@ -55,6 +56,8 @@
     money.delegate = self;
     money.clearButtonMode = UITextFieldViewModeAlways;
     money.placeholder = @"金额";
+    money.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    money.returnKeyType = UIReturnKeyDone;
     [money mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(view).multipliedBy(0.9);
         make.height.mas_equalTo(30);
@@ -67,6 +70,7 @@
     [view addSubview:details];
     details.clearButtonMode = UITextFieldViewModeAlways;
     details.placeholder = @"备注";
+    details.returnKeyType = UIReturnKeyDone;
     [details mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(view).multipliedBy(0.9);
         make.height.mas_equalTo(30);
@@ -119,12 +123,21 @@
     NSString *realMoney = [self.types selectedRowInComponent:0] == BillType_income ? self.money.text : [@"-" stringByAppendingString:self.money.text];
     User *user = [LTKAContext shareInstance].user;
     Bill *bill = [[Bill alloc] initWithBelong:user.userName andBelongUserId:user.userId andDetails:self.details.text andRealTime:[[TimeGetter shareInstance] dateStrWithDateFormat:@"YYYY-MM-dd HH:mm" andDate:self.realTime.date] andMoney:realMoney andBillType:[self.types selectedRowInComponent:0] andBillConcreteType:[self.types selectedRowInComponent:1] andBillFlowType:[self.types selectedRowInComponent:2]];
-    if(self.isAdd) {
-        [[HttpService shareInstance] addBillServiceWithBill:bill];
-    } else {
-        bill.billId = self.billId;
-        [[HttpService shareInstance] modifyBillServiceWithBill:bill];
-    }
+    // 防止循环引用造成内存泄漏
+    __weak typeof(self) weakSelf = self;
+    [LTKAAlert showAlertWithTitle:@"提示" message:@"确定提交账单吗？" confirmHandle:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if(strongSelf.isAdd) {
+            [[HttpService shareInstance] addBillServiceWithBill:bill];
+        } else {
+            bill.billId = strongSelf.billId;
+            [[HttpService shareInstance] modifyBillServiceWithBill:bill];
+        }
+    } cancleHandle:nil];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES]; //实现该方法是需要注意view需要是继承UIControl而来的
 }
 
 #pragma mark - UIPickerViewDelegate, UIPickerViewDataSource
@@ -216,6 +229,10 @@
     } else {
         return YES;
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return [textField resignFirstResponder];
 }
 
 #pragma mark - 广播

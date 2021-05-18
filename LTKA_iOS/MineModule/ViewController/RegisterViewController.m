@@ -12,7 +12,7 @@
 #import <Masonry/Masonry.h>
 #import <WHToast/WHToast.h>
 
-@interface RegisterViewController ()
+@interface RegisterViewController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *email;
 @property (nonatomic, strong) UITextField *password;
@@ -38,8 +38,11 @@
     
     UITextField *email = [UITextField new];
     [view addSubview:email];
+    email.delegate = self;
     email.clearButtonMode = UITextFieldViewModeAlways;
     email.placeholder = @"邮箱";
+    email.keyboardType = UIKeyboardTypeEmailAddress;
+    email.returnKeyType = UIReturnKeyDone;
     [email mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(view).multipliedBy(0.9);
         make.height.mas_equalTo(30);
@@ -50,9 +53,11 @@
     
     UITextField *password = [UITextField new];
     [view addSubview:password];
+    password.delegate = self;
     password.secureTextEntry = YES;
     password.clearButtonMode = UITextFieldViewModeAlways;
     password.placeholder = @"密码";
+    password.returnKeyType = UIReturnKeyDone;
     [password mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(view).multipliedBy(0.9);
         make.height.mas_equalTo(30);
@@ -83,6 +88,15 @@
     } else {
         [[HttpService shareInstance] registerServiceWithEmail:self.email.text andPassword:self.password.text];
     }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES]; //实现该方法是需要注意view需要是继承UIControl而来的
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return [textField resignFirstResponder];
 }
 
 #pragma mark - 广播

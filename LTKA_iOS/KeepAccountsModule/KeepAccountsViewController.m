@@ -17,6 +17,7 @@
 #import "BillTableViewCell.h"
 #import "LTKAContext.h"
 #import "HttpService.h"
+#import "LTKAAlert.h"
 
 #import <WHToast/WHToast.h>
 #import <VHBoomMenuButton/VHBoomMenuButton.h>
@@ -136,11 +137,15 @@
             } else if(index == 1) {
                 [self.navigationController pushViewController:[FindBillViewController new] animated:YES];
             } else if(index == 2) {
-                User *user = [LTKAContext shareInstance].user;
-                [[HttpService shareInstance] quiteLedgerServiceWithLedgerId:user.ledgerId andUserId:user.userId];
+                [LTKAAlert showAlertWithTitle:@"提示" message:@"确定退出账本吗？\n注：如果所有人退出，账本会被自动删除！" confirmHandle:^{
+                    User *user = [LTKAContext shareInstance].user;
+                    [[HttpService shareInstance] quiteLedgerServiceWithLedgerId:user.ledgerId andUserId:user.userId];
+                } cancleHandle:nil];
             } else if(index == 3) {
-                User *user = [LTKAContext shareInstance].user;
-                [[HttpService shareInstance] deleteLedgerServiceWithLedgerId:user.ledgerId andUserId:user.userId];
+                [LTKAAlert showAlertWithTitle:@"提示" message:@"确定删除账本吗？" confirmHandle:^{
+                    User *user = [LTKAContext shareInstance].user;
+                    [[HttpService shareInstance] deleteLedgerServiceWithLedgerId:user.ledgerId andUserId:user.userId];
+                } cancleHandle:nil];
             } else if(index == 4) {
                 [[HttpService shareInstance] checkSerialCodeServiceWithLedgerId:[LTKAContext shareInstance].user.ledgerId];
             }
@@ -185,9 +190,10 @@
 //    }
 //}
 - (void) requestData {
+    [self.dataArray removeAllObjects];
+    [self.tableView reloadData];
     [[HttpService shareInstance] getLedgerArrayServiceWithLedgerId:[[LTKAContext shareInstance] user].ledgerId andCompletedBlock:^(NSInteger code, NSString * _Nonnull msg, NSArray<Bill *> * _Nonnull ledgerArray) {
         if(code == 0) {
-            [self.dataArray removeAllObjects];
 //            [self.dataArray addObjectsFromArray:[[ledgerArray reverseObjectEnumerator] allObjects]];
             NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"realTime" ascending:NO];
             [self.dataArray addObjectsFromArray:[ledgerArray sortedArrayUsingDescriptors:@[descriptor]]];

@@ -10,6 +10,7 @@
 #import "ModifyUserViewController.h"
 
 #import "LTKAContext.h"
+#import "LTKAAlert.h"
 
 #import <Masonry/Masonry.h>
 
@@ -154,11 +155,13 @@
 }
 
 - (void)logOutBtnClick:(UIButton *)btn {
-    [[LTKAContext shareInstance] setIsLogIn:NO];
-    [[NSNotificationCenter defaultCenter] postNotificationName:M_Log_Out_Notification object:nil];
-    [self setup];
-    NSString*appDomain = [[NSBundle mainBundle] bundleIdentifier];
-    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    [LTKAAlert showAlertWithTitle:@"提示" message:@"确定退出登录吗？" confirmHandle:^{
+        [[LTKAContext shareInstance] setIsLogIn:NO];
+        [[NSNotificationCenter defaultCenter] postNotificationName:M_Log_Out_Notification object:nil];
+        [self setup];
+        NSString*appDomain = [[NSBundle mainBundle] bundleIdentifier];
+        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    } cancleHandle:nil];
 }
 
 - (void)logInOrRegisterBtnClick:(UIButton *)btn {

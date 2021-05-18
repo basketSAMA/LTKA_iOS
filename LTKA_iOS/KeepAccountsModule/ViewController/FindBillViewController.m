@@ -16,7 +16,7 @@
 #import <Masonry/Masonry.h>
 #import <WHToast/WHToast.h>
 
-@interface FindBillViewController ()
+@interface FindBillViewController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *belong;
 @property (nonatomic, strong) UITextField *details;
@@ -41,8 +41,10 @@
     
     UITextField *belong = [UITextField new];
     [view addSubview:belong];
+    belong.delegate = self;
     belong.clearButtonMode = UITextFieldViewModeAlways;
     belong.placeholder = @"所属人(模糊匹配)";
+    belong.returnKeyType = UIReturnKeyDone;
     [belong mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(view).multipliedBy(0.9);
         make.height.mas_equalTo(30);
@@ -53,8 +55,10 @@
     
     UITextField *details = [UITextField new];
     [view addSubview:details];
+    details.delegate = self;
     details.clearButtonMode = UITextFieldViewModeAlways;
     details.placeholder = @"备注(模糊匹配)";
+    details.returnKeyType = UIReturnKeyDone;
     [details mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(view).multipliedBy(0.9);
         make.height.mas_equalTo(30);
@@ -77,6 +81,7 @@
     
     UIButton *btn = [UIButton new];
     [view addSubview:btn];
+    
     [btn setTitle:@"确认" forState:UIControlStateNormal];
     [btn setBackgroundColor:[UIColor grayColor]];
     [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -104,6 +109,15 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES]; //实现该方法是需要注意view需要是继承UIControl而来的
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return [textField resignFirstResponder];
 }
 
 /*

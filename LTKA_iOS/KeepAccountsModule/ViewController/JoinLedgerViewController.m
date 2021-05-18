@@ -12,7 +12,7 @@
 #import <Masonry/Masonry.h>
 #import <WHToast/WHToast.h>
 
-@interface JoinLedgerViewController ()
+@interface JoinLedgerViewController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *serialCode;
 @property (nonatomic, strong) UIButton *btn;
@@ -37,8 +37,11 @@
     
     UITextField *serialCode = [UITextField new];
     [view addSubview:serialCode];
+    serialCode.delegate = self;
     serialCode.clearButtonMode = UITextFieldViewModeAlways;
     serialCode.placeholder = @"账本序列码";
+    serialCode.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    serialCode.returnKeyType = UIReturnKeyDone;
     [serialCode mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(view).multipliedBy(0.9);
         make.height.mas_equalTo(30);
@@ -67,6 +70,15 @@
     } else {
         [[HttpService shareInstance] joinLedgerServiceWithSerialCode:self.serialCode.text andUserId:[[LTKAContext shareInstance] user].userId];
     }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES]; //实现该方法是需要注意view需要是继承UIControl而来的
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return [textField resignFirstResponder];
 }
 
 #pragma mark - 广播

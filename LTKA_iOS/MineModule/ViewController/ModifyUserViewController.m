@@ -13,7 +13,7 @@
 #import <Masonry/Masonry.h>
 #import <WHToast/WHToast.h>
 
-@interface ModifyUserViewController ()
+@interface ModifyUserViewController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *userName;
 @property (nonatomic, strong) UIButton *btn;
@@ -38,8 +38,10 @@
     
     UITextField *userName = [UITextField new];
     [view addSubview:userName];
+    userName.delegate = self;
     userName.clearButtonMode = UITextFieldViewModeAlways;
     userName.placeholder = @"用户名";
+    userName.returnKeyType = UIReturnKeyDone;
     [userName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(view).multipliedBy(0.9);
         make.height.mas_equalTo(30);
@@ -69,6 +71,15 @@
         [LTKAContext shareInstance].user.userName = self.userName.text;
         [[HttpService shareInstance] ModifyUserService];
     }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES]; //实现该方法是需要注意view需要是继承UIControl而来的
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return [textField resignFirstResponder];
 }
 
 #pragma mark - 广播

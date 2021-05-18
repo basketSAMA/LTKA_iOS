@@ -154,8 +154,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:M_Log_Out_Notification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:KA_Request_Data_Notification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quiteOrDeleteLedger:) name:U_Http_Service_Quite_Ledger_Notification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quiteOrDeleteLedger:) name:U_Http_Service_Delete_Ledger_Notification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Quite_Ledger_Notification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:U_Http_Service_Delete_Ledger_Notification object:nil];
 }
 
 - (void)dealloc {

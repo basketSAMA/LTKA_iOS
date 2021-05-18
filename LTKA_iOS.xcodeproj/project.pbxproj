@@ -21,6 +21,7 @@
 		662FB4FA265139AB00D568D8 /* FindBillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662FB4F9265139AB00D568D8 /* FindBillViewController.m */; };
 		662FB4FD26514B7200D568D8 /* ModifyUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662FB4FC26514B7200D568D8 /* ModifyUserViewController.m */; };
 		662FB50126525CD100D568D8 /* PropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662FB50026525CD100D568D8 /* PropertyViewController.m */; };
+		662FB5052653A30800D568D8 /* LTKAAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 662FB5042653A30800D568D8 /* LTKAAlert.m */; };
 		6679703F2609C05D00EA4D13 /* KeepAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6679703E2609C05D00EA4D13 /* KeepAccountsViewController.m */; };
 		66797046260DDC4F00EA4D13 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 66797045260DDC4F00EA4D13 /* Bill.m */; };
 		6679704F261EDC9100EA4D13 /* BillGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6679704E261EDC9100EA4D13 /* BillGroup.m */; };
@@ -88,6 +89,8 @@
 		662FB4FC26514B7200D568D8 /* ModifyUserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyUserViewController.m; sourceTree = "<group>"; };
 		662FB4FF26525CD100D568D8 /* PropertyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyViewController.h; sourceTree = "<group>"; };
 		662FB50026525CD100D568D8 /* PropertyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertyViewController.m; sourceTree = "<group>"; };
+		662FB5032653A30800D568D8 /* LTKAAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTKAAlert.h; sourceTree = "<group>"; };
+		662FB5042653A30800D568D8 /* LTKAAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTKAAlert.m; sourceTree = "<group>"; };
 		6679703D2609C05D00EA4D13 /* KeepAccountsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeepAccountsViewController.h; sourceTree = "<group>"; };
 		6679703E2609C05D00EA4D13 /* KeepAccountsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeepAccountsViewController.m; sourceTree = "<group>"; };
 		66797044260DDC4F00EA4D13 /* Bill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 				6612F1592646B3E0006ED45C /* LTKAContext.m */,
 				6612F1602646EA83006ED45C /* HttpService.h */,
 				6612F1612646EA83006ED45C /* HttpService.m */,
+				662FB5032653A30800D568D8 /* LTKAAlert.h */,
+				662FB5042653A30800D568D8 /* LTKAAlert.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -587,6 +592,7 @@
 				66D40C862603058100FC76E2 /* main.m in Sources */,
 				6612F1672646F5CA006ED45C /* RegisterViewController.m in Sources */,
 				6612F16A26470C8F006ED45C /* MineViewController.m in Sources */,
+				662FB5052653A30800D568D8 /* LTKAAlert.m in Sources */,
 				662FB50126525CD100D568D8 /* PropertyViewController.m in Sources */,
 				662FB4F4264FF2A300D568D8 /* AddBillViewController.m in Sources */,
 				66D40C782603057F00FC76E2 /* SceneDelegate.m in Sources */,
