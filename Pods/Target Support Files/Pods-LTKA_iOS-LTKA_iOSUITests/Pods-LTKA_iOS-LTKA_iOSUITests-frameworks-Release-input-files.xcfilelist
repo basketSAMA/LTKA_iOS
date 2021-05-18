@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-LTKA_iOS-LTKA_iOSUITests/Pods-LTKA_iOS-LTKA_iOSUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/VHBoomMenuButton/VHBoomMenuButton.framework
+${BUILT_PRODUCTS_DIR}/WHToast/WHToast.framework
